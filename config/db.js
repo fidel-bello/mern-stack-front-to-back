@@ -10,7 +10,7 @@ const connectDB = async () => {
 
     await mongoose.connect(db, {
         
-        useUnifiedTopology: true
+      useNewUrlParser: true
     });
 
     console.log('MongoDB connected!');
