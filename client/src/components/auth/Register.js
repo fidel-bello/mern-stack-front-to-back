@@ -1,7 +1,15 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useState } from 'react-router-dom';
 
 export const Register = () => {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        password2: ''
+    });
+    
   return (
     <Fragment>
       <section className='container'>
@@ -38,7 +46,7 @@ export const Register = () => {
           </div>
           <input type='submit' className='btn btn-primary' value='Register' />
         </form>
-        <p class='my-1'>
+        <p className='my-1'>
           Already have an account? <Link to='/login'>Sign In</Link>
         </p>
       </section>
