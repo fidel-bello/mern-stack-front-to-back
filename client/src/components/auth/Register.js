@@ -2,16 +2,16 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export const Register = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: '',
+  });
+  const { name, email, password, password2 } = formData;
 
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: '',
-        password2: ''
-    });
-    const {name, email, password, password2 } = formData;
-
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   return (
     <Fragment>
       <section className='container'>
@@ -21,16 +21,24 @@ export const Register = () => {
         </p>
         <form className='form' action='create-profile.html'>
           <div className='form-group'>
-            <input 
-            type='text' 
-            placeholder='Name' 
-            name='name' 
-            value={name} 
-            onChange= {e => onChange(e)}
-            required />
+            <input
+              type='text'
+              placeholder='Name'
+              name='name'
+              value={name}
+              onChange={(e) => onChange(e)}
+              required
+            />
           </div>
           <div className='form-group'>
-            <input type='email' placeholder='Email Address' name='email' />
+            <input
+              type='email'
+              placeholder='Email Address'
+              name='email'
+              value={email}
+              onChange={(e) => onChange(e)}
+              required
+            />
             <small className='form-text'>
               This site uses Gravatar so if you want a profile image, use a
               Gravatar email
@@ -42,6 +50,9 @@ export const Register = () => {
               placeholder='Password'
               name='password'
               minLength='6'
+              value={password}
+              onChange={(e) => onChange(e)}
+              required
             />
           </div>
           <div className='form-group'>
@@ -50,6 +61,9 @@ export const Register = () => {
               placeholder='Confirm Password'
               name='password2'
               minLength='6'
+              value={password2}
+              onChange={(e) => onChange(e)}
+              required
             />
           </div>
           <input type='submit' className='btn btn-primary' value='Register' />
