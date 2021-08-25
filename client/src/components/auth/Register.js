@@ -12,6 +12,15 @@ export const Register = () => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  
+    const onSubmit = e => {
+        e.preventDefault();
+        if(password !== password2) {
+            console.log('passwords do not match')
+        } else {
+            console.log(formData)
+        }
+    };
   return (
     <Fragment>
       <section className='container'>
@@ -19,7 +28,7 @@ export const Register = () => {
         <p className='lead'>
           <i className='fas fa-user'></i> Create Your Account
         </p>
-        <form className='form' action='create-profile.html'>
+        <form className='form' onSubmit={e => onSubmit(e)}>
           <div className='form-group'>
             <input
               type='text'
