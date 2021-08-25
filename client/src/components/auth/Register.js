@@ -9,7 +9,7 @@ export const Register = () => {
         password: '',
         password2: ''
     });
-    
+    const {name, email, password, password2 } = formData;
   return (
     <Fragment>
       <section className='container'>
