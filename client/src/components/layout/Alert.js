@@ -14,4 +14,4 @@ Alert.propTypes = {
 
 }
 
-export default Alert
+export default connect()(Alert)
