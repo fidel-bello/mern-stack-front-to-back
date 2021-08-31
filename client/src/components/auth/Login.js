@@ -6,15 +6,15 @@ export const Login = () => {
     email: '',
     password: '',
   });
-  const { email, password} = formData;
+  const { email, password } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  
-    const onSubmit = e => {
-        e.preventDefault();
-        console.log('Success!')
-    };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('Success!');
+  };
 
   return (
     <Fragment>
@@ -23,9 +23,8 @@ export const Login = () => {
         <p className='lead'>
           <i className='fas fa-user'></i> Sign Into Your Account
         </p>
-        <form className='form' onSubmit={e => onSubmit(e)}>
-          <div className='form-group'>
-          </div>
+        <form className='form' onSubmit={(e) => onSubmit(e)}>
+          <div className='form-group'></div>
           <div className='form-group'>
             <input
               type='email'
