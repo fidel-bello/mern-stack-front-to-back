@@ -6,10 +6,12 @@ import {
   USER_LOADED,
   AUTH_ERROR,
 } from './types';
-
+import setAuthToken from '../utils/setAuthToken';
 //load user
 export const loadUser = () => async dispatch => {
-
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 }
 
 //Register user
