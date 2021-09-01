@@ -5,6 +5,8 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 //load user
@@ -42,6 +44,8 @@ export const register =
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+
+      dispatch(loadUser());
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
@@ -70,6 +74,8 @@ export const register =
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
+
+      dispatch(loadUser())
     } catch (err) {
       const errors = err.response.data.errors;
       if (errors) {
