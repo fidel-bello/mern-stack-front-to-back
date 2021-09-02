@@ -29,4 +29,4 @@ import { logout } from '../../actions/auth';
   );
 };
 
-export default Navbar;
+export default connect()(Navbar);
