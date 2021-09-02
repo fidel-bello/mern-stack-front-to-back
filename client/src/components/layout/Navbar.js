@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-export const Navbar = () => {
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
+
+ const Navbar = () => {
   return (
     <div>
       <nav className='navbar bg-dark'>
@@ -24,3 +28,5 @@ export const Navbar = () => {
     </div>
   );
 };
+
+export default Navbar;
