@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link , Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
@@ -22,13 +22,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert('passwords do not match', 'danger');
     } else {
-      register({ name, email, password});
+      register({ name, email, password });
     }
   };
 
-  if(isAuthenticated) {
-    return  <Redirect to= '/dashboard' />
-    
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
   }
   return (
     <Fragment>
@@ -94,9 +93,9 @@ Register.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.PropTypes
-})
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.PropTypes,
+});
 
 export default connect(
   mapStateToProps, 

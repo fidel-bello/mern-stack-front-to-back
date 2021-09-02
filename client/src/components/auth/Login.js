@@ -18,10 +18,10 @@ const Login = ({ login, isAuthenticated }) => {
     e.preventDefault();
     login(email, password);
   };
-//Redirect if login success
-if(isAuthenticated) {
-  return <Redirect to='/dashboard' />
-}
+  //Redirect if login success
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
   return (
     <Fragment>
       <section className='container'>
@@ -66,10 +66,7 @@ Login.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-})
-export default connect(
-  mapStateToProps, 
-  { login }
-  )(Login);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+export default connect(mapStateToProps, { login })(Login);
