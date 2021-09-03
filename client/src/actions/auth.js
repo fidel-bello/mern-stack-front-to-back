@@ -70,7 +70,7 @@ export const register =
 
     const body = JSON.stringify({ email, password });
     try {
-      const res = await axios.post('/api/auth', body, config);
+      const res = await axios.post('api/auth', body, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
