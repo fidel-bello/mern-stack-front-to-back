@@ -13,16 +13,14 @@ const Dashboard = ({
     getCurrentProfile();
   }, []);
 
-  return loading && profile === null ? (
-  <Spinner /> 
-  ) : (
-  <Fragment>
+  return <Fragment>
     <h1 className='large text-primary'>Dashboard</h1>
     <p className='lead'>
       <i className='fas fa-user'>Welcome {user && user.name}</i>
     </p>
+    {profile !== null ? <Fragment>has</Fragment> : <Fragment>has not</Fragment>}
   </Fragment>
-  );
+
 };
 
 Dashboard.propTypes = {
