@@ -90,6 +90,4 @@ export const register =
 
 // Logout / clear profile 
 
-export const logout = () => dispatch => {
-  dispatch({ type: LOGOUT});
-}
+export const logout = () =>({ type: LOGOUT});
