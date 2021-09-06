@@ -5,7 +5,7 @@ import Moment from 'react-moment';
 
 const Experience = ({ experience }) => {
   const experiences = experience.map((exp) => (
-    <td key={exp._id}>
+    <tr key={exp._id}>
       <td key={exp.company}></td>
       <td className='hide-sm'>{exp.title}</td>
       <td>
@@ -19,7 +19,7 @@ const Experience = ({ experience }) => {
       <td>
         <button className='btn btn-danger'>Delete</button>
       </td>
-    </td>
+    </tr>
   ));
   return (
     <Fragment>
@@ -27,7 +27,7 @@ const Experience = ({ experience }) => {
       <table className='table'>
         <thead>
           <tr>
-            <th>Company</th>
+            <th className='hide-sm'>Company</th>
             <th className='hide-sm'>Title</th>
             <th className='hide-sm'>Years</th>
             <th />
