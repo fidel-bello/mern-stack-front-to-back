@@ -97,7 +97,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.PropTypes,
 });
 
-export default connect(
-  mapStateToProps, 
-  { setAlert, register }
-  )(Register);
+export default connect(mapStateToProps, { setAlert, register })(Register);
