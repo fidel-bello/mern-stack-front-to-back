@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { AddExperience } from '../../actions/profile';
+import { addExperience } from '../../actions/profile';
 
-const AddExperience = (props) => {
+const AddExperience = ({ addExperience, history}) => {
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -30,7 +30,10 @@ const AddExperience = (props) => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form className='form'>
+      <form className='form' onSubmit={e => {
+          e.preventDefault();
+          addExperience(formData, history)
+      }}>
         <div className='form-group'>
           <input
             type='text'
@@ -115,7 +118,7 @@ const AddExperience = (props) => {
 };
 
 AddExperience.propTypes = {
-  AddExperience: PropTypes.func.isRequired,
+  addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { AddExperience })(AddExperience);
+export default connect(null, { addExperience })(AddExperience);

@@ -60,12 +60,8 @@ export const createProfile =
 
   export const addExperience = (formData, history) => async dispatch => {
     try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      const res = await axios.put('/api/profile/experience', formData, config);
+      
+      const res = await axios.put('/api/profile/experience', formData);
 
       dispatch({
         type: UPDATE_PROFILE,
@@ -94,12 +90,7 @@ export const createProfile =
 
   export const addEducation = (formData, history) => async dispatch => {
     try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      const res = await axios.put('/api/profile/education', formData, config);
+      const res = await axios.put('/api/profile/education', formData);
 
       dispatch({
         type: UPDATE_PROFILE,
