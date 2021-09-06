@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
 
-const AddExperience = ({ addExperience, history}) => {
+const AddExperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
     company: '',
     title: '',
@@ -19,7 +19,7 @@ const AddExperience = ({ addExperience, history}) => {
 
   const { company, title, location, from, to, current, description } = formData;
 
-  const onChange = (e) =>
+  const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
@@ -30,10 +30,13 @@ const AddExperience = ({ addExperience, history}) => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={e => {
+      <form
+        className='form'
+        onSubmit={(e) => {
           e.preventDefault();
-          addExperience(formData, history)
-      }}>
+          addExperience(formData, history);
+        }}
+      >
         <div className='form-group'>
           <input
             type='text'
