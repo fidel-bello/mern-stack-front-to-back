@@ -5,15 +5,15 @@ import Moment from 'react-moment';
 
 const Education = ({ education }) => {
   const educations = education.map((edu) => (
-    <tr key={exp._id}>
-      <td key={exp.company}></td>
-      <td className='hide-sm'>{exp.title}</td>
+    <tr key={edu._id}>
+      <td className='hide-sm'>{edu.school}</td>
+      <td className='hide-sm'>{edu.degree}</td>
       <td>
-        <Moment format='YYYY/MM/DD'>{exp.from}</Moment> -{' '}
-        {exp.to === null ? (
+        <Moment format='YYYY/MM/DD'>{edu.from}</Moment> -{' '}
+        {edu.to === null ? (
           'Now'
         ) : (
-          <Moment format='YYYY/MM/DD'>{exp.to}</Moment>
+          <Moment format='YYYY/MM/DD'>{edu.to}</Moment>
         )}
       </td>
       <td>
@@ -27,20 +27,20 @@ const Education = ({ education }) => {
       <table className='table'>
         <thead>
           <tr>
-            <th className='hide-sm'>Company</th>
-            <th className='hide-sm'>Title</th>
+            <th className='hide-sm'>School</th>
+            <th className='hide-sm'>Degree</th>
             <th className='hide-sm'>Years</th>
             <th />
           </tr>
         </thead>
-        <tbody>{experiences}</tbody>
+        <tbody>{educations}</tbody>
       </table>
     </Fragment>
   );
 };
 
-Experience.propTypes = {
+Education.propTypes = {
     experience: PropTypes.array.isRequired,
 };
 
-export default Experience;
+export default Education;
