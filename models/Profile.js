@@ -19,7 +19,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    require: true,
+    required: true,
   },
   skills: {
     type: [String],
@@ -36,6 +36,9 @@ const ProfileSchema = new mongoose.Schema({
       title: {
         type: String,
         required: true,
+      },
+      company: {
+        type: String,
       },
       location: {
         type: String,
