@@ -2,9 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addEducation} from '../../actions/profile';
+import { addEducation } from '../../actions/profile';
 
-const AddEducation = ({ addEducation, history}) => {
+const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
     school: '',
     degree: '',
@@ -17,7 +17,8 @@ const AddEducation = ({ addEducation, history}) => {
 
   const [toDateDisabled, toggledDisabled] = useState(false);
 
-  const { school, degree, fieldofstudy, from, to, current, description } = formData;
+  const { school, degree, fieldofstudy, from, to, current, description } =
+    formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,14 +27,17 @@ const AddEducation = ({ addEducation, history}) => {
     <Fragment>
       <h1 className='large text-primary'>Add Your Education</h1>
       <p className='lead'>
-        <i className='fas fa-code-branch'></i> Add any school or bootcamp
-        have attended
+        <i className='fas fa-code-branch'></i> Add any school or bootcamp have
+        attended
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={e => {
+      <form
+        className='form'
+        onSubmit={(e) => {
           e.preventDefault();
-          addEducation(formData, history)
-      }}>
+          addEducation(formData, history);
+        }}
+      >
         <div className='form-group'>
           <input
             type='text'

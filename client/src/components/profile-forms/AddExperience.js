@@ -19,7 +19,7 @@ const AddExperience = ({ addExperience, history }) => {
 
   const { company, title, location, from, to, current, description } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
