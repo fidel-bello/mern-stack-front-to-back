@@ -174,20 +174,21 @@ export const createProfile =
     }
   }
 
+  // Delete account
 
-  export const deleteAccount = id = async dispatch => {
+  export const deleteAccount = () => async dispatch => {
     if(window.confirm('Are you willing to suffer the consequences? This can NOT be undone!')) {
       try {
-        const res = await axios.delete(`/api/profile/education/${id}`)
+        const res = await axios.delete(`/api/profile`)
 
         dispatch({ type: CLEAR_PROFILE });
         dispatch({ type: DELETE_ACCOUNT });
         dispatch( setAlert('Your account has been permanantly deleted'));
       } catch (err) {
-      const errors = err.response.data.errors;
-      if(errors) {
-        errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-      }
+      dispatch({
+        tpye: PROFILE_ERROR,
+        payload: { msg: err.response.statusText, status: err.response.status }
+      });
       }
     }
   }
