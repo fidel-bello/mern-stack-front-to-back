@@ -105,8 +105,10 @@ export const createProfile =
         history.push('/dashboard');
       }
     } catch (err) {
-      if (err) {
-        err.forEach((err) => dispatch(setAlert(err.msg, 'danger')));
+      const errors = err.response.data.errors;
+
+      if (errors) {
+        errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
       }
 
       dispatch({
@@ -242,7 +244,7 @@ export const createProfile =
         dispatch( setAlert('Your account has been permanantly deleted'));
       } catch (err) {
       dispatch({
-        tpye: PROFILE_ERROR,
+        type: PROFILE_ERROR,
         payload: { msg: err.response.statusText, status: err.response.status }
       });
       }
