@@ -22,7 +22,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert('passwords do not match', 'danger');
     } else {
-      register({ name, email, password });
+      register({ name, email, password, password2 });
     }
   };
 
@@ -94,7 +94,7 @@ Register.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.PropTypes,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
