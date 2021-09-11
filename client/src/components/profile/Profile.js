@@ -1,18 +1,12 @@
-import React, {Fragment, useEffect} from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { getProfileById } from '../../actions/profile';
 
-const Profile = props => {
-    return (
-        <div>
-            Profile
-        </div>
-    )
-}
+const Profile = (props) => {
+  return <div>Profile</div>;
+};
 
-Profile.propTypes = {
+Profile.propTypes = {};
 
-}
-
-export default connect(mapStateToProps, {getProfileById})(Profile);
+export default connect(mapStateToProps, { getProfileById })(Profile);
