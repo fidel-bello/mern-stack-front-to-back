@@ -121,6 +121,7 @@ router.get('/', async (req, res) => {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
+});
 //@routes GET api/profile/user/:user_id
 //@desc   Get all profile by user id
 //@access public
@@ -319,11 +320,10 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', (req, res) => {
   try {
     const options = {
-      uri: `https://api.github.com/users/${
-        req.params.username
-      }/repos?per_page=5&sort=created:asc&client_id=${config.get(
-        'githubClientId'
-      )}&client_secret=${config.get('githubSecret')}`,
+      uri: `https://api.github.com/users/${req.params.username
+        }/repos?per_page=5&sort=created:asc&client_id=${config.get(
+          'githubClientId'
+        )}&client_secret=${config.get('githubSecret')}`,
       method: 'GET',
       headers: { 'user-agent': 'node.js' },
     };
