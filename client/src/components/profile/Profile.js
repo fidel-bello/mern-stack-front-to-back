@@ -11,14 +11,15 @@ const Profile = ({
  }) => {
     useEffect(() => {
         getProfileById(match.params.id);
-    }, [getProfileById])
+    }, [getProfileById]);
+
   return <div>Profile</div>;
 };
 
 Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired,\
+    auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
