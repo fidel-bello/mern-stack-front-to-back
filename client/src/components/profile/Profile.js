@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../actions/profile';
+import { Link } from 'react-router-dom';
 
 const Profile = ({ 
     getProfileById, 
@@ -13,7 +14,14 @@ const Profile = ({
         getProfileById(match.params.id);
     }, [getProfileById]);
 
-  return <div>Profile</div>;
+  return <>
+ <Fragment>
+     <Link to='/profiles' className='btn btn-light'>
+         Back To Profiles
+     </Link>
+ </Fragment>
+ </>
+  
 };
 
 Profile.propTypes = {
