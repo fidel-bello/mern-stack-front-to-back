@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../actions/profile';
 
-const Profile = ({ getProfileById, match }) => {
+const Profile = ({ 
+    getProfileById, 
+    profile: {profile, loading},
+    auth,
+    match
+ }) => {
     useEffect(() => {
         getProfileById(match.params.id);
     }, [getProfileById])
