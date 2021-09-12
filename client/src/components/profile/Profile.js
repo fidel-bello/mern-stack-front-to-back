@@ -20,6 +20,9 @@ const Profile = ({
     <Link to='/profiles' className='btn btn-light'>
     back to profiles
     </Link>
+    {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id && (<Link to='/edit-profile' className='btn btn-dark'>
+      edit profile
+    </Link>)}
     </Fragment>}
   </Fragment>)
 };
