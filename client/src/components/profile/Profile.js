@@ -16,7 +16,11 @@ const Profile = ({
     getProfileById(match.params.id);
   }, [getProfileById]);
   return (<Fragment>
-  {profile === null || loading ? <Spinner /> : <Fragment>profile</Fragment>}
+  {profile === null || loading ? <Spinner /> : <Fragment>
+    <Link to='/profiles' className='btn btn-light'>
+    back to profiles
+    </Link>
+    </Fragment>}
   </Fragment>)
 };
 
