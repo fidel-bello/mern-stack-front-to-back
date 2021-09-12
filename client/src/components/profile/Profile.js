@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getProfileById } from '../../actions/profile';
-import { Link } from 'react-router-dom'
-import ProfileTop from './ProfileTop'
+import { Link } from 'react-router-dom';
+import ProfileTop from './ProfileTop';
 
 const Profile = ({
   match,
@@ -14,17 +14,30 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileById(match.params.id);
-  }, [getProfileById]);
-  return (<Fragment>
-  {profile === null || loading ? <Spinner /> : <Fragment>
-    <Link to='/profiles' className='btn btn-light'>
-    back to profiles
-    </Link>
-    {auth.isAuthenticated && auth.loading === false && auth.user._id === profile.user._id && (<Link to='/edit-profile' className='btn btn-dark'>
-      edit profile
-    </Link>)}
-    </Fragment>}
-  </Fragment>)
+  }, [getProfileById, match.params.id]);
+  return (
+    <Fragment>
+      {profile === null || loading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <Link to='/profiles' className='btn btn-light'>
+            back to profiles
+          </Link>
+          {auth.isAuthenticated &&
+            auth.loading === false &&
+            auth.user._id === profile.user._id && (
+              <Link to='/edit-profile' className='btn btn-dark'>
+                edit profile
+              </Link>
+            )}
+            <div className='profile-grid my-1'>
+              <ProfileTop profile={profile}/>
+            </div>
+        </Fragment>
+      )}
+    </Fragment>
+  );
 };
 
 Profile.propTypes = {
