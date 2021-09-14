@@ -5,7 +5,8 @@ import Spinner from '../layout/Spinner';
 import { getProfileById } from '../../actions/profile';
 import { Link } from 'react-router-dom';
 import ProfileTop from './ProfileTop';
-import ProfileAbout from './ProfileAbout'
+import ProfileAbout from './ProfileAbout';
+import ProfileExperience from './ProfileExperience';
 
 const Profile = ({
   match,
@@ -32,10 +33,25 @@ const Profile = ({
                 edit profile
               </Link>
             )}
-            <div className='profile-grid my-1'>
-              <ProfileTop profile={profile}/>
-              <ProfileAbout profile={profile}/>
+          <div className='profile-grid my-1'>
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <div className='profile-exp bg-white p-2'>
+              <h2 className='text-primary'>Experience</h2>
+              {profile.experience.length > 0 ? (
+                <Fragment>
+                  {profile.experience.map((experience) => (
+                    <ProfileExperience
+                      key={experience._id}
+                      experience={experience}
+                    />
+                  ))}
+                </Fragment>
+              ) : (
+                <h4> No experience credentials</h4>
+              )}
             </div>
+          </div>
         </Fragment>
       )}
     </Fragment>
