@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 const ProfileTop = ({
   profile: {
@@ -18,28 +19,28 @@ const ProfileTop = ({
         src={avatar}
         alt=''
       />
-      <h1 className='large'>John Doe</h1>
-      <p className='lead'>Developer at Microsoft</p>
+      <h1 className='large'>{name}</h1>
+      <p className='lead'>{status}{company && <span> at {company}</span>}</p>
       <p>Seattle, WA</p>
       <div className='icons my-1'>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fas fa-globe fa-2x'></i>
-        </a>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        </Link>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fab fa-twitter fa-2x'></i>
-        </a>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        </Link>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fab fa-facebook fa-2x'></i>
-        </a>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        </Link>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fab fa-linkedin fa-2x'></i>
-        </a>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        </Link>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fab fa-youtube fa-2x'></i>
-        </a>
-        <a href='#' target='_blank' rel='noopener noreferrer'>
+        </Link>
+        <Link to='#' target='_blank' rel='noopener noreferrer'>
           <i className='fab fa-instagram fa-2x'></i>
-        </a>
+        </Link>
       </div>
     </div>
   );
