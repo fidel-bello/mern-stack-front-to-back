@@ -13,9 +13,7 @@ const ProfileAbout = ({
       <Fragment>
         <h2 class='text-primary'>{name.trim().split(' ')[0]}'s Bio</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed
-          doloremque nesciunt, repellendus nostrum deleniti recusandae nobis
-          neque modi perspiciatis similique?
+          {bio ? bio : "No bio yet"}
         </p>
         <div class='line'></div>
       </Fragment>
