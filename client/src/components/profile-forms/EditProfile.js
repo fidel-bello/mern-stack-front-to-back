@@ -25,7 +25,7 @@ const EditProfile = ({
     instagram: '',
   });
 
-  const [displaySocialInput, toggleSocialInpuy] = useState(false);
+  const [displaySocialInput, toggleSocialInput] = useState(false);
 
   useEffect(() => {
     getCurrentProfile();
@@ -165,9 +165,9 @@ const EditProfile = ({
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
 
-        <div className='my-2'>
+        <div className='my-2' onSubmit={(e) => onSubmit(e)}>
           <button
-            onClick={() => toggleSocialInpuy(!displaySocialInput)}
+            onClick={() => toggleSocialInput(!displaySocialInput)}
             type='button'
             className='btn btn-light'
           >
@@ -235,7 +235,7 @@ const EditProfile = ({
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1' />
+        <input type='submit' className='btn btn-primary my-1'  onSubmit={(e) => onSubmit(e)}/>
         <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
         </Link>

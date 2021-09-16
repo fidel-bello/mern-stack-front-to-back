@@ -20,7 +20,7 @@ const CreateProfile = ({ createProfile, history }) => {
     instagram: '',
   });
 
-  const [displaySocialInput, toggleSocialInpuy] = useState(false);
+  const [displaySocialInput, toggleDisplayInput] = useState(false);
 
   const {
     company,
@@ -142,7 +142,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
         <div className='my-2'>
           <button
-            onClick={() => toggleSocialInpuy(!displaySocialInput)}
+            onClick={() => toggleDisplayInput(!displaySocialInput)}
             type='button'
             className='btn btn-light'
           >
@@ -210,7 +210,11 @@ const CreateProfile = ({ createProfile, history }) => {
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1' to='/dashboard' />
+        <Link
+          type='submit'
+          className='btn btn-primary my-1'
+          to='/dashboard'
+        ></Link>
         <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
         </Link>
