@@ -326,13 +326,13 @@ router.get('/github/:username', (req, res) => {
       )}&client_secret=${config.get('gitHubSecret')}`,
       method: 'GET',
       headers: { 'user-agent': 'node.js' },
-    }
+    };
 
     request(options, (error, response, body) => {
       if (error) console.error(error);
 
       if (response.statusCode !== 200) {
-        return res.status(404).json({ msg: 'No github Profile found' })
+        return res.status(404).json({ msg: 'No github Profile found' });
       }
 
       res.json(JSON.parse(body));
