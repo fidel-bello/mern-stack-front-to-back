@@ -53,12 +53,12 @@ export const getProfileById = (userId) => async (dispatch) => {
 
     dispatch({
       type: GET_PROFILE,
-      payload: res.data
+      payload: res.data,
     });
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
 };
@@ -66,7 +66,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 //get gtihub repos
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    const res = await axios.get(`/api/profile/github/${username}`);
+    const res = await axios.get(`/profile/github/${username}`);
 
     dispatch({
       type: GET_REPOS,
@@ -101,7 +101,7 @@ export const createProfile =
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
       );
 
-      if (!edit) {
+      if (edit) {
         history.push('/dashboard');
       }
     } catch (err) {
@@ -231,7 +231,7 @@ export const deleteAccount = () => async (dispatch) => {
     )
   ) {
     try {
-     await axios.delete(`/api/profile`);
+      await axios.delete(`/api/profile`);
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: DELETE_ACCOUNT });

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect, connectAdvanced } from 'react-redux';
+import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
 const EditProfile = ({
@@ -25,7 +25,7 @@ const EditProfile = ({
     instagram: '',
   });
 
-  const [displaySocialInput, toggleSocialInput] = useState(false);
+  const [displaySocialInput, toggleDisplayInput] = useState(false);
 
   useEffect(() => {
     getCurrentProfile();
@@ -39,13 +39,13 @@ const EditProfile = ({
       githubusername:
         loading || !profile.githubusername ? '' : profile.githubusername,
       bio: loading || !profile.bio ? '' : profile.bio,
-      twitter: loading || !profile.social ? '' : profile.twitter,
-      facebook: loading || !profile.social ? '' : profile.facebook,
-      linkedin: loading || !profile.social ? '' : profile.linkedin,
-      youtube: loading || !profile.social ? '' : profile.youtube,
-      instagram: loading || !profile.social ? '' : profile.instagram,
+      twitter: loading || !profile.social ? '' : profile.social.twitter,
+      facebook: loading || !profile.social ? '' : profile.social.facebook,
+      linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+      youtube: loading || !profile.social ? '' : profile.social.youtube,
+      instagram: loading || !profile.social ? '' : profile.social.instagram,
     });
-  }, [loading, getCurrentProfile]);
+  }, [loading]);
 
   const {
     company,
@@ -165,9 +165,9 @@ const EditProfile = ({
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
 
-        <div className='my-2' onSubmit={(e) => onSubmit(e)}>
+        <div className='my-2'>
           <button
-            onClick={() => toggleSocialInput(!displaySocialInput)}
+            onClick={() => toggleDisplayInput(!displaySocialInput)}
             type='button'
             className='btn btn-light'
           >
@@ -235,7 +235,7 @@ const EditProfile = ({
           </Fragment>
         )}
 
-        <input type='submit' className='btn btn-primary my-1'  onSubmit={(e) => onSubmit(e)}/>
+        <input type='submit' className='btn btn-primary my-1' />
         <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
         </Link>
@@ -243,15 +243,16 @@ const EditProfile = ({
     </Fragment>
   );
 };
-const mapStateToProps = (state) => ({
-  profile: state.profile,
-});
 
 EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  profile: state.profile
+});
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
   withRouter(EditProfile)
