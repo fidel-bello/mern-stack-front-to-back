@@ -7,19 +7,14 @@ import Spinner from '../layout/Spinner';
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
     useEffect(() => {
         getGithubRepos(username)
-    }, [])
-
-    return (
-        <div>
-            hello
-        </div>
-    )
+    }, []);
+    return <div />
 }
 
 ProfileGithub.propTypes = {
-getGithubRepos: PropTypes.func.isRequired,
-repos: PropTypes.array.isRequired,
-username: PropTypes.string.isRequired
+    getGithubRepos: PropTypes.func.isRequired,
+    repos: PropTypes.array.isRequired,
+    username: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => ({
