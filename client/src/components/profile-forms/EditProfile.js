@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
+
+
+
 const EditProfile = ({
   profile: { profile, loading },
   createProfile,
@@ -25,6 +28,7 @@ const EditProfile = ({
     instagram: '',
   });
 
+  
   const [displaySocialInput, toggleDisplayInput] = useState(false);
 
   useEffect(() => {
@@ -69,6 +73,7 @@ const EditProfile = ({
     e.preventDefault();
     createProfile(formData, history, true);
   };
+
   return (
     <Fragment>
       <h1 className='large text-primary'>Create Your Profile</h1>
