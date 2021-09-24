@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ import Moment from 'react-moment';
 const PostItem = ({
   post: { _id, text, name, avatar, user, likes, comments, date },
   auth,
-}) => (  <div class="post bg-white p-1 my-1">
+}) =>  <div class="post bg-white p-1 my-1">
   <div>
     <a href="profile.html">
       <img
@@ -46,7 +46,7 @@ const PostItem = ({
   </button>
   </div>
 </div>
-);
+
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
