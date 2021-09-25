@@ -15,7 +15,7 @@ const PostForm = ({ addPost }) => {
         onSubmit={(e) => {
           e.preventDefault();
           addPost({ text });
-          setText('');
+          setText(' ');
         }}
       >
         <textarea
@@ -23,6 +23,7 @@ const PostForm = ({ addPost }) => {
           cols='30'
           rows='5'
           placeholder='Create a post'
+          value={text}  
           onChange={(e) => setText(e.target.value)}
           required
         ></textarea>
