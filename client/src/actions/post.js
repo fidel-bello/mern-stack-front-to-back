@@ -78,7 +78,7 @@ export const addPost = (formdata) => async (dispatch) => {
   };
 
   try {
-    await axios.post('/api/posts', formdata, config);
+    const res = await axios.post('/api/posts', formdata, config);
 
     dispatch({
       type: ADD_POST,
