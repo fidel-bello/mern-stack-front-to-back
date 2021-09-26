@@ -18,7 +18,14 @@ app.use('/api/profile', require('./routes/api/profile'));
 
 app.use('/api/posts', require('./routes/api/posts'));
 
-
+//serve static assets
+if (process.env.NODE_ENV === 'production') {
+  //static folder
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 const PORT = process.env.PORT || 5000;
-app.get('/', (req, res) => res.send('API Running'));
+
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
