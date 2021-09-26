@@ -1,6 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://fidel123:fidel123@cluster0.q85xi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret": "mysecrettoken",
-    "gitHubClientId": "df2f100996ac0e612a05",
-    "gitHubSecret": "da7f2e478f621b84ed781e44ae17ada27b179b6d"
-}

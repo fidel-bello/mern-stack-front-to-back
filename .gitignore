@@ -2,3 +2,4 @@ node_modules/
 config/default.json
 client/build
 client/.eslintcache
+config/production.json
