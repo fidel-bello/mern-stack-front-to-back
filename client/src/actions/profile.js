@@ -68,11 +68,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 //get github repos
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    console.log('test');
     const res = await axios.get(`/api/profile/github/${username}`);
-
-    console.log(res);
-
     dispatch({
       type: GET_REPOS,
       payload: res.data,
@@ -106,7 +102,7 @@ export const createProfile =
         setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success')
       );
 
-      if (edit) {
+      if (!edit) {
         history.push('/dashboard');
       }
     } catch (err) {
