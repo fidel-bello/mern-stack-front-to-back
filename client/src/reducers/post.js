@@ -28,8 +28,8 @@ export default function (state = initialState, action) {
       return {
         ...state,
         post: payload,
-        loading: false,
-      };
+        loading: false
+      }
     case ADD_POST:
       return {
         ...state,
